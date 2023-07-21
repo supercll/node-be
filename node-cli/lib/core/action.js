@@ -1,6 +1,6 @@
-var inquirer = require('inquirer')
-var config = require('../../config')
-var downloadFun = require('./download')
+let inquirer = require('inquirer')
+let config = require('../../config')
+let downloadFun = require('./download')
 const myAction = async (project, args) => {
   // 命令行的执行逻辑代码
   // console.log(project);
