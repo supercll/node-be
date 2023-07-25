@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="./devtool.js"></script> -->
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <button id="grow">加</button>
+    <script>
+      var x = []
+      function grow() {
+        for (var i = 0; i< 10000; i++) {
+          var div = document.createElement('div')
+          div.innerHTML = '--'
+          document.body.appendChild(div)
+        }
+      }
+      x.push(new Array(1000000).join('x'))
+      document.getElementById('grow').addEventListener('click', grow)
+    </script> -->
+    <script>
+      class MemoryLeakClass {
+        constructor() {
+          this.boom = new ArrayBuffer(100000)
+        }
+      }
+
+      const unCollected = {}
+
+      setInterval(() => {
+        unCollected[Date.now()] = new MemoryLeakClass()
+      }, 1000)
+    </script>
+  </body>
+</html>
